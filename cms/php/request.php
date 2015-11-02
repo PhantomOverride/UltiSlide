@@ -4,7 +4,7 @@
 	
 	$dsn 		= "mysql:host=localhost;dbname=ddd";
 	$username 	= "uuu";
-	$password	= "ppp";
+	$password	= "ppo";
 	$options	= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
 	
 	try{
