@@ -1,0 +1,11 @@
+Follow these steps to get it working.
+
+1.) Fill in the "/cms/php/config.php" file with the infromation for your database and google aouth.
+	1.1) Fill in the define("API_KEY","") with your googöe aouth token. Make sure you have opened Youtube data api v.3.
+	1.2) Fill in the data in the DataBase class. This app uses PDO to connect ot the database.
+		1.2.1) const DSN is the address to database.
+		1.2.2) const USERNAME is the username to the database.
+		1.2.3) const PASSWORD is the password to your database.
+		1.2.4) const OPTIONS is the options for the communication between this and your database.
+
+2.) For the time being the canvas automaticly set to full size.

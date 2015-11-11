@@ -1,5 +1,5 @@
 <?php
-	define("API_KEY", "AIzaSyAJh6_gndGJWBMn9gCjhpXcv7qudcRcBxI");
+	require_once("config.php");
 
 	if(!isset($_POST["submit"])){
 		exit("Förfrågan måste skickas igenom knappen");
@@ -22,7 +22,7 @@
     $content = "";
 	$priority = filter_input(INPUT_POST, "priority", FILTER_SANITIZE_NUMBER_INT);
 	$duration = filter_input(INPUT_POST, "duration", FILTER_SANITIZE_NUMBER_INT);
-	$effect = $_POST["effect"];
+	$effect = filter_var_array($_POST["effect"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$startTime = GetTimestamp(true);
 	$endTime = GetTimestamp(false);
 	
@@ -57,13 +57,8 @@
 		break;
 	}
 	
-	$dsn 		= "mysql:host=localhost;dbname=ddd";
-	$username 	= "uuu";
-	$password	= "ppp";
-	$options	= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
-	
 	try{
-		$pdo = new PDO($dsn, $username, $password, $options);
+		$pdo = DataBase::GetPDO();
 	}
 	catch(Exception $error){
 		echo $error;
@@ -87,6 +82,10 @@
 	else{
 		$sth->execute();
 	}
+	
+	header("location: /cms");
+	echo "<a href='/cms'>Go Back</a>";
+	exit;
 	
     function Image(){
         $local = filter_input(INPUT_POST, "localImage", FILTER_SANITIZE_FULL_SPECIAL_CHARS);

@@ -1,12 +1,10 @@
 <?php
+	require_once("config.php");
+
     $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-    $dsn        = "mysql:host=localhost;dbname=ddd";
-    $username   = "uuu";
-    $password   = "ppp";
-    $options    = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
     
     try{
-        $pdo = new PDO($dsn, $username, $password, $options);
+        $pdo = DataBase::GetPDO();
     }
     catch(Exception $error){
         echo $error;
@@ -22,4 +20,8 @@
     else{
         $sth->execute();
     }
+	
+	header("location: /cms");
+	echo "<a href='/cms'>Go Back</a>";
+	exit;
 ?>

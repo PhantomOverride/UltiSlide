@@ -1,14 +1,11 @@
 <?php
 	require("links.php");
+	require_once("config.php");
+	
 	$currentSlide = filter_input(INPUT_POST,"slideNumber", FILTER_SANITIZE_NUMBER_INT);
 	
-	$dsn 		= "mysql:host=localhost;dbname=ddd";
-	$username 	= "uuu";
-	$password	= "ppo";
-	$options	= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
-	
 	try{
-		$pdo = new PDO($dsn, $username, $password, $options);
+		$pdo = DataBase::GetPDO();
 	}
 	catch(Exception $error){
 		echo $error;

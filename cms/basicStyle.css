@@ -12,3 +12,6 @@
 #slideForm input[type = "submit"]{
     display: none;
 }
+#slideForm fieldset{
+	display: none;
+}
