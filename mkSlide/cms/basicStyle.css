@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 5px;
+}
+#slideForm{
+    width: 500px;
+}
+#slideForm div{
+    margin-bottom: 10px;
+    display: none;
+}
+#slideForm fieldset{
+	display: none;
+}
+.removeImage{
+	max-width: 200;
+	max-height: 200;
+}
