@@ -1,6 +1,6 @@
 <?php
 	//Google API KEY
-	define("API_KEY", "AIzaSyAJh6_gndGJWBMn9gCjhpXcv7qudcRcBxI");
+	define("API_KEY", "<Google Key>");
 
 	$IMAGE_FOLDER = "../../images/";
 
@@ -21,8 +21,8 @@
 		*/
 
 		private static $DSN 		= "mysql:host=localhost;dbname=olofhaglun_mk";
-		private static $USERNAME 	= "olofhaglun_mk";
-		private static $PASSWORD	= "aWujcHPuFwRacV1F7vtP";
+		private static $USERNAME 	= "username";
+		private static $PASSWORD	= "password";
 		private static $OPTIONS	= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
 
 		public static function GetPDO(){
