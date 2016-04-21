@@ -109,7 +109,7 @@
 				if($_FILES["imageFile"]["size"] > 4000000){
 					exit("Sorry, file you try to upload is larger than 4mb");
 				}
-				$allowedFileTypes = array("jpg","jpeg","png");
+				$allowedFileTypes = array("jpg", "JPG", "jpeg", "JPEG","png", "PNG");
 				if(!in_array(pathinfo($target,PATHINFO_EXTENSION), $allowedFileTypes)){
 					exit("Only JPG, JPEG and PNG are allowed");
 				}
