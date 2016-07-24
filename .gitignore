@@ -1,1 +1,6 @@
 config.php
+
+#Ignore the index file since this project is made to be part of other projects
+index.html
+index.htm
+index.php
