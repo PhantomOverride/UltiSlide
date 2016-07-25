@@ -1,3 +1,4 @@
+<script src="slider.js"></script>
 <canvas id="MKslide">
 </canvas>
 
