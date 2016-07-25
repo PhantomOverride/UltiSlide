@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	//Set width and height of canvas
-	var width = $(document).width();
-	var height = $(document).height();
+	var width = window.settings.size.width;
+	var height = window.settings.size.height;
 	$("#ultiSlide").css({"width":width+"px","height":height+"px"});
 
 
