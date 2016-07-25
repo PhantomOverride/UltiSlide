@@ -1,12 +1,14 @@
+<script>
+var settings = {
+    audioFile : "MoveMove.wav",
+    blinkTime : 1000,
+    size : {
+        width: 1600,
+        height: 900,
+    },
+};
+</script>
 <script src="slider.js">
-    var settings = {
-        audioFile : "MoveMove.wav",
-        blinkTime : 1000,
-        size : {
-            width: 1600,
-            height: 900,
-        },
-    };
 </script>
 <canvas id="ultiSlide">
 </canvas>
