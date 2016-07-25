@@ -1,5 +1,6 @@
 <script>
-var settings = {
+var UltiSlide = function(){};
+UltiSlide.settings = {
     audioFile : "MoveMove.wav",
     blinkTime : 1000,
     size : {
