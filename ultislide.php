@@ -1,5 +1,5 @@
 <script src="slider.js"></script>
-<canvas id="MKslide">
+<canvas id="ultiSlide">
 </canvas>
 
 <iframe id="youtube" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>

@@ -3,7 +3,7 @@ $(document).ready(function(){
 	//Set width and height of canvas
 	var width = $(document).width();
 	var height = $(document).height();
-	$("#MKslide").css({"width":width+"px","height":height+"px"});
+	$("#ultiSlide").css({"width":width+"px","height":height+"px"});
 
 
 	slideShow = new SlideShow(width, height, "2d");
@@ -15,7 +15,7 @@ function SlideShow(canvasWidth, canvasHeight, dimension){
 	var that = this;
 
 	//Create canvas
-	this.canvas = document.getElementById("MKslide");
+	this.canvas = document.getElementById("ultiSlide");
 	this.canvas.width = canvasWidth;
 	this.canvas.height = canvasHeight;
 	this.context = this.canvas.getContext(dimension);
