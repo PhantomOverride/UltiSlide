@@ -1,4 +1,3 @@
-var settings = {audioFile : "MoveMove.wav", blinkTime : 1000};
 $(document).ready(function(){
 	//Set width and height of canvas
 	var width = $(document).width();

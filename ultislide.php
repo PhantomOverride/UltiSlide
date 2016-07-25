@@ -1,4 +1,9 @@
-<script src="slider.js"></script>
+<script src="slider.js">
+    var settings = {
+        audioFile : "MoveMove.wav",
+        blinkTime : 1000,
+    };
+</script>
 <canvas id="ultiSlide">
 </canvas>
 
