@@ -30,7 +30,7 @@ SlideShow.prototype.LoadNextSlide = function(currentSlideNumber){
 
 	var data = $.parseJSON($.ajax({
 		type: "POST",
-		url: "/mkSlide/cms/php/request.php",
+		url: "/cms/php/request.php",
 		dataType: "json",
 		data: {slideNumber : currentSlideNumber},
 		async: false
