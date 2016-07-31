@@ -48,7 +48,7 @@
 
 	switch($type){
 		case "image":
-			$content = "olofhaglund.name/mkSlide/images/" . Image();
+			$content = IMAGES . Image();
 		break;
 		case "youtube":
 			$content = filter_input(INPUT_POST, "youtubeUrl", FILTER_SANITIZE_URL);
@@ -92,6 +92,7 @@
 	$sth = null;
 	$pdo = null;
 
+    //TODO: fix the location with a settings file
 	header("location: /mkSlide/cms");
 	echo "<a href='/cms'>Go Back</a>";
 	exit;
@@ -99,13 +100,13 @@
     function Image(){
         $local = filter_input(INPUT_POST, "localImage", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         if($local == "local"){ //Upload file
-            global $IMAGE_FOLDER;
-			$target = $IMAGE_FOLDER . basename($_FILES["imageFile"]["name"]);
+			$target = IMAGE_DIRECTORY . basename($_FILES["imageFile"]["name"]);
 			$check = getimagesize($_FILES["imageFile"]["tmp_name"]);
 			if($check !== false){
 				if(file_exists($target)){
 					exit("A file with this name does allready exists. Choose another name or use the existing image");
 				}
+                //Set maxiumum fileupload in the settings
 				if($_FILES["imageFile"]["size"] > 4000000){
 					exit("Sorry, file you try to upload is larger than 4mb");
 				}
@@ -133,8 +134,7 @@
         $url = filter_input(INPUT_POST, "urlImage", FILTER_SANITIZE_URL);
         $name = filter_input(INPUT_POST, "urlImageName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $ext = Extension($url);
-        global $IMAGE_FOLDER;
-        $image = $IMAGE_FOLDER . $name . "." . $ext;
+        $image = IMAGE_DIRECTORY . $name . "." . $ext;
         copy($url, $image);
         return $name . "." . $ext;
     }
