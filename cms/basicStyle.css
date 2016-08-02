@@ -7,10 +7,6 @@
 }
 #slideForm div{
     margin-bottom: 10px;
-    display: none;
-}
-#slideForm fieldset{
-	display: none;
 }
 .removeImage{
 	max-width: 200;
