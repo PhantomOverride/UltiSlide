@@ -15,7 +15,11 @@ var hide_website = ["local", "youtube", "image"];
 
 $(document).ready(function(){
 	Reset();
+
 	var media = new MediaType();
+
+    //Trigger the onchange event for the #mediaType
+    $("#mediaType").change();
 
     //Update duration slide
     $("#durationRange").on("change", function(){

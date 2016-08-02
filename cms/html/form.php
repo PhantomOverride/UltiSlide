@@ -3,8 +3,7 @@
 	    <legend>Load upp new slide </legend>
 	    <label for="mediaType">Media type</label>
 	    <select name="mediaType" id="mediaType">
-            <option value="empty" selected="selected"></option>
-            <option value="image">Image (jpeg, jpg, png)</option>
+            <option value="image" selected="selected">Image (jpeg, jpg, png)</option>
             <option value="youtube">Youtube</option>
             <option value="website">Website</option>
 	    </select>
