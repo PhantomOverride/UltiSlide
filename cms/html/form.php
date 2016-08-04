@@ -65,7 +65,8 @@
 			<div id="duration">
 				<label for="duration" >Image duration: </label>
 				<span id="durationLabel">10</span>
-				<input type="range" name="duration" id="durationRange" min="1" value="10" max="180" step="1" />
+				<input type="range" name="duration" id="durationRange" min="1" value="10" max="1000" step="1" />
+                <!-- XXX: This limit is only for easier slide and not the maximum the server can take. -->
 			</div>
 
 			<br />
