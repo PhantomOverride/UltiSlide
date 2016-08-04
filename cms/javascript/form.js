@@ -144,6 +144,5 @@ function Settings(showFunction, hideFunction){
 function Reset(){
 	document.getElementById("slideForm").reset();
 	$("#slideForm fieldset").hide();
-	$("#slideForm div").hide();
 	$("#slideForm #media").show();
 }
