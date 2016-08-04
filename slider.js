@@ -20,7 +20,9 @@ function SlideShow(canvasWidth, canvasHeight, dimension){
 	this.context = this.canvas.getContext(dimension);
 	this.image = new Image();
 	this.image.onload = function(){
-		that.context.drawImage(this,0,0,canvasWidth,canvasHeight);
+        that.context.clearRect(0,0,canvasWidth, canvasHeight);
+		//that.context.drawImage(this,0,0,canvasWidth,canvasHeight);
+        that.context.drawImage(this,0,0);
 	};
 	this.currentSlide;
 	this.nextSlide;
