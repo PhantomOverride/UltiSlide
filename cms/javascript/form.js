@@ -84,21 +84,22 @@ function Image(showFunction, hideFunction){
 	var that = this;
 
 	$("input[name=localImage]").change(function(){
+
 		switch($(this).val()){
 			case "local":
+                that.ShowFunction(["imageFileDiv"]);
+                that.HideFunction(["urlImageDiv"]);
 				$("#imageFile").change(function(){ //When an image is selected
 					new Settings(that.ShowFunction, that.HideFunction);
 				});
 			break;
 
 			case "url":
-				that.ShowFunction(["image", "urlImageDiv", "imageName"]);
+                that.ShowFunction(["urlImageDiv"]);
+                that.HideFunction(["imageFileDiv"]);
 				$("#urlImage").change(function(){
-
-					that.ShowFunction(["settingsField", "settings", "submit" , "duration", "priority", "startSettings", "effects"]);
 					new Settings(that.ShowFunction, that.HideFunction);
 				});
-				that.HideFunction(["imageFileDiv"]);
 			break;
 		}
 	});
@@ -110,7 +111,7 @@ function Youtube(showFunction, hideFunction){
 	var that = this;
 
 	$("#youtubeUrl").change(function(){
-		that.ShowFunction();
+
 		new Settings(that.ShowFunction, that.HideFunction);
 	});
 
