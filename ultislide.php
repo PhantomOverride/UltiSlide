@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style.css"/>
 <script>
 var UltiSlide = function(){};
 UltiSlide.settings = {
