@@ -4,8 +4,8 @@ UltiSlide.settings = {
     audioFile : "MoveMove.wav",
     blinkTime : 1000,
     size : {
-        width: 1600,
-        height: 900,
+        width: $(document).width(),
+        height: $(document).height(),
     },
 };
 </script>
