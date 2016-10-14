@@ -6,6 +6,8 @@
 [/] Fix so images is not stretched,
     [ ] Fix so the users can choose if they want it to stretched
     [ ] Center the image if it is not fullscreen
+## CMS
 [ ] Add logging for the CMS
+[ ] Add preview in the cms
 # Ideas
 [ ] Fix so it works with joomla, durpal and wordpress and so on?
