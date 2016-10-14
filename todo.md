@@ -9,5 +9,6 @@
 ## CMS
 [ ] Add logging for the CMS
 [ ] Add preview in the cms
+
 # Ideas
 [ ] Fix so it works with joomla, durpal and wordpress and so on?
