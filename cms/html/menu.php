@@ -1,4 +1,4 @@
 <nav>
-	<a href="/mkSlide/cms?page=form">Upload</a>
-	<a href="/mkSlide/cms?page=remove">Delete</a>
+	<a href="/cms?page=form">Upload</a>
+	<a href="/cms?page=remove">Delete</a>
 </nav>
