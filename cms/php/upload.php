@@ -91,10 +91,9 @@
 	//Close connection
 	$sth = null;
 	$pdo = null;
-
-    //TODO: fix header
-	//header("location: /mkSlide/cms");
-	echo "<a href='/cms'>Go Back</a>";
+    print_r("location: http://" . URL_TO_SLIDE ."cms");
+	#header("location: http://" . URL_TO_SLIDE ."/cms");
+	echo "<a href='http://" . URL_TO_SLIDE .  "cms'>Go Back</a>";
 	exit;
 
     function Image(){
