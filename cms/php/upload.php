@@ -92,8 +92,8 @@
 	$sth = null;
 	$pdo = null;
 
-    //TODO: fix the location with a settings file
-	header("location: /mkSlide/cms");
+    //TODO: fix header
+	//header("location: /mkSlide/cms");
 	echo "<a href='/cms'>Go Back</a>";
 	exit;
 
