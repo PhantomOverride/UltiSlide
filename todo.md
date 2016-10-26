@@ -12,3 +12,4 @@
 
 # Ideas
 [ ] Fix so it works with joomla, durpal and wordpress and so on?
+[ ] Add a script for setting up config?
