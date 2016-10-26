@@ -12,3 +12,27 @@
 	max-width: 200;
 	max-height: 200;
 }
+.image_data{
+    float: left;
+    max-width: 400px;
+    height: 350px;
+    border-right: 2px solid black;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+.image_data:last-child{
+    border: 0px;
+}
+.image_data span{
+    position: relative;
+    bottom: 0px;
+}
+.image_data *{
+    padding: 0px;
+}
+.images_cms{
+    max-width: 100%;
+    padding: 0px;
+}
