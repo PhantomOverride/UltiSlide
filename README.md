@@ -2,6 +2,7 @@
 
 * [Setting up Ultislid](#setting-up-ultislid)
     * [Setup your config file](#setup-your-config-file)
+    
 ## Setting up Ultislid
 Follow these instructions to setup your ultislide.
 
