@@ -1,8 +1,8 @@
 <?php
 	//Google API KEY
 	define("API_KEY", "SET_YOUR_GOOGLE_API_TOKEN_HERE"); // Set you google api avalible at http://console.developers.google.com . You also have to activate the "YouTube Data API v3".
-    $url_to_slide = "olofhaglund.name/"; //url to the base dircetory for the slide
-	define("IMAGES", $url_to_slide . "images/"); //url to image directory
+    define("URL_TO_SLIDE", "olofhaglund.name/"); //url to the base dircetory for the slide
+	define("IMAGES", URL_TO_SLIDE . "images/"); //url to image directory
     define("IMAGE_DIRECTORY", "../../images/  "); //relative path to the image directory
 
 	class DataBase{
