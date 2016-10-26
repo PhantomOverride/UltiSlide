@@ -16,6 +16,8 @@ var hide_website = ["local", "youtube", "image"];
 $(document).ready(function(){
 	Reset();
 
+    SetDefaultDate();
+
 	var media = new MediaType();
 
     //Trigger the onchange event for the #mediaType
@@ -145,4 +147,16 @@ function Reset(){
 	document.getElementById("slideForm").reset();
 	$("#slideForm fieldset").hide();
 	$("#slideForm #media").show();
+}
+
+/**
+* This is a description
+* @method SetDefaultDate
+*/
+function SetDefaultDate(){
+    var today = new Date();
+    var today = today.getFullYear() + '-' + ('0' + today.getMonth()).slice(-2) + '-' + ('0' + today.getDay()).slice(-2);
+    document.getElementById("startDate").value = today;
+
+    document.getElementById("endDate").value = today;
 }

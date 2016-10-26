@@ -85,16 +85,16 @@
 				<div id="timeAndDate">
 
 					<label for="startDate">Start date</label>
-					<input type="text" name="startDate" id="startDate" value="2015-01-01" />
+					<input type="date" name="startDate" id="startDate" />
 					<label for="startTime">Start time</label>
-					<input type="text" name="startTime" id="startTime" value="00:00:00" />
+					<input type="time" name="startTime" id="startTime" value="00:00:00" />
 
 					<br />
 
 					<label for="endDate">End date</label>
-					<input type="text" name="endDate" id="endDate" value="2015-01-02" />
+					<input type="date" name="endDate" id="endDate" />
 					<label for="endTime">End time</label>
-					<input type="text" name="endText" id="endTime" value="24:00:00" />
+					<input type="time" name="endText" id="endTime" value="00:00:00" />
 				</div>
 
 			</div><!-- END startSettings -->
