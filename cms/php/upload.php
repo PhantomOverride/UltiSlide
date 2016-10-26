@@ -106,7 +106,7 @@
 				if(file_exists($target)){
 					exit("A file with this name does allready exists. Choose another name or use the existing image");
 				}
-                //Set maxiumum fileupload in the settings
+
 				if($_FILES["imageFile"]["size"] > 4000000){
 					exit("Sorry, file you try to upload is larger than 4mb");
 				}
