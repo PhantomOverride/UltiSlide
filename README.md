@@ -2,7 +2,8 @@
 
 * [Setting up Ultislid](#setting-up-ultislid)
     * [Setup your config file](#setup-your-config-file)
-    
+    * [Setup database](#setup-database)
+
 ## Setting up Ultislid
 Follow these instructions to setup your ultislide.
 
@@ -20,3 +21,6 @@ The token will be used to authentize to google. The API will be used to get the 
 5.  Set the URL_TO_SLIDE with the absolute url to the base directory of slideshow
 
 6.  Set the defined IMAGES value to the image folder you want to use.  Important that the IMAGES ends with a /
+
+### Setup database
+Run the mkSlide.sql in your database 
