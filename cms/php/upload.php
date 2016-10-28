@@ -135,6 +135,10 @@
         $ext = Extension($url);
         $image = IMAGE_DIRECTORY . $name . "." . $ext;
         copy($url, $image);
+        $test_image = imagecreatefromjpeg($image);
+        if(!$test_image){
+            exit("Problem with your image. Test with something that doesn't brake");
+        }
         return $name . "." . $ext;
     }
 
