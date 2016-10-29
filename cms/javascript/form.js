@@ -1,11 +1,10 @@
 /**
- * TODO: Long description
+ * Functions to controll all the form objects.
  *
- * @summary  TODO: Short description 
- *
- * @requires javascriptlibrary.js
- * @class
- * @classdesc This is a description of the MyClass class.
+ * @summary Functions to controll all the form objects
+ * @author Olof Haglund <olof@olofhaglund.name>
+ * @requires jquery-3.1.1.min.js
+ * @requires form_objects.js
  */
 
 $(document).ready(function(){
@@ -14,13 +13,16 @@ $(document).ready(function(){
     SetDefaultDate();
 });
 
+/**
+* @summary Resets the default value in formular
+* @method Reset
+*/
 function Reset(){
 	document.getElementById("slideForm").reset();
-
 }
 
 /**
-* @summary This is a description
+* @summary Sets the default date to todays date for the date fields
 * @method SetDefaultDate
 */
 function SetDefaultDate(){
