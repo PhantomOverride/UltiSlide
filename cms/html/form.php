@@ -1,7 +1,7 @@
 <form id="slideForm" action="php/upload.php" method="post" enctype="multipart/form-data">
 	<fieldset id="media">
 	    <legend>Load upp new slide </legend>
-	    <label class="form_level_1" for="mediaType">Media type</label>
+	    <label class="form_init" for="mediaType">Media type</label>
 	    <select name="mediaType" id="mediaType">
             <option value="image" selected="selected">Image (jpeg, jpg, png)</option>
             <option value="youtube">Youtube</option>

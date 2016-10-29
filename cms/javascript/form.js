@@ -15,7 +15,7 @@ $(document).ready(function(){
     //////////////////////////////////////
     // Get all form elements in level 1 //
     //////////////////////////////////////
-    [].forEach.call(document.getElementsByClassName("form_level_1"), function(element){
+    [].forEach.call(document.getElementsByClassName("form_init"), function(element){
         elements.push(new Form_object(element));
     });
 
