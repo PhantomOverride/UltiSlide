@@ -2,7 +2,7 @@
 [X] Split the CMS from the index file
 [X] Fix so the start date layout
 [X] Fix the cms sending you to wrong site after adding a image
-[ ] Add so you can use images on the server
+[/] Add so you can use images on the server
 [/] Fix so images is not stretched,
     [ ] Fix so the users can choose if they want it to stretched
     [ ] Center the image if it is not fullscreen
