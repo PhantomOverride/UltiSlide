@@ -1,5 +1,6 @@
 
 <link rel="stylesheet" type="text/css" href="style.css"/>
+<script src="jquery-3.1.1.min.js"></script>
 <script>
 var UltiSlide = function(){};
 UltiSlide.settings = {
