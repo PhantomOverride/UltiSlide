@@ -9,6 +9,7 @@
 ## CMS
 [ ] Add logging for the CMS
 [ ] Add preview in the cms
+[ ] Change javascript code to something more scale able
 
 # Ideas
 [ ] Fix so it works with joomla, durpal and wordpress and so on?
