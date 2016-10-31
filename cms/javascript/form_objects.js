@@ -13,10 +13,18 @@
  * @classdesc Controller for all the form objects
  * @param element An HTML element to act as an object.
  */
-function Form_object(element){
-    console.log(element);
-    this.element = element;
-}
-Form_object.prototype.show = function(display){
-    this.element.style.display = display ? "" : "none";
+class Form_object{
+    constructor(element){
+        this.element = element;
+        this.signal = this.element.getAttribute("data-require");
+    }
+
+    /**
+    * @summary Change if object should be shown
+    * @method function
+    * @param {bool} display If display is true then the object will be shown. If false then the object will be hidden.
+    */
+    show(display){
+        this.element.style.display = display ? "" : "none";
+    }
 }
