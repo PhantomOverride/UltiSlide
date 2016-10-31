@@ -3,12 +3,12 @@
 	    <legend>Load upp new slide </legend>
 	    <label class="form_init" for="mediaType">Media type</label>
 	    <select name="mediaType" id="mediaType">
-            <option value="image" selected="selected">Image (jpeg, jpg, png)</option>
-            <option value="youtube">Youtube</option>
-            <option value="website">Website</option>
+            <option value="image" class= data-signal="image" selected="selected">Image (jpeg, jpg, png)</option>
+            <option value="youtube" data-signal="youtube">Youtube</option>
+            <option value="website" data-signal="website">Website</option>
 	    </select>
 
-	    <div class="form_object" id="local"> <!-- Only if image is selected -->
+	    <div class="form_object" data-require="image"  id="local"> <!-- Only if image is selected -->
             <label for="localImageLocal">Local file</label>
             <input type="radio" name="localImage" id="localImageLocal" value="local" />
             <label for="lovalImageUrl">Internet image</label>
