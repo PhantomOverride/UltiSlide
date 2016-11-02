@@ -5,6 +5,10 @@
 #slideForm{
     width: 500px;
 }
+
+#slideForm fieldset{
+    margin-bottom:10px;
+}
 #slideForm div{
     margin-bottom: 10px;
 }
