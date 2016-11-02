@@ -1,6 +1,3 @@
-<?php
-	$allowedPages = array("form", "remove");
-?>
 <html>
 <head>
 	<meta charset="UTF-8">
