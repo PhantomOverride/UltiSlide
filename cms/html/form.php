@@ -1,6 +1,6 @@
 <form id="slideForm" action="php/upload.php" method="post" enctype="multipart/form-data">
 	<fieldset id="media">
-	    <legend>Load upp new slide </legend>
+	    <legend>Load up new slide </legend>
 	    <label for="mediaType">Media type</label>
 	    <select name="mediaType" id="mediaType">
             <option value="image" selected="selected">Image (jpeg, jpg, png)</option>
@@ -22,7 +22,7 @@
                 <input type="file" name="imageFile" id="imageFile" accept=".jpeg,.jpg,.png" />
             </div>
             <div id="urlImageDiv">
-                <label for="urlImage">Url to image</label>
+                <label for="urlImage">URL to image</label>
                 <input type="url" name="urlImage" id="urlImage">
                 <br />
 				<div id="imageName">
@@ -32,13 +32,13 @@
             </div>
 	    </div>
 
-	    <div id="youtube"> <!--ONly if youtube is slected -->
-            <label for="youtubeUrl">Url to video </label>
+	    <div id="youtube"> <!--Only if youtube is slected -->
+            <label for="youtubeUrl">URL to video </label>
             <input type="url" name="youtubeUrl" id="youtubeUrl" checked />
 	    </div>
 
         <div id="website">
-            <label for="websiteUrl">Url to website </label>
+            <label for="websiteUrl">URL to website </label>
             <input type="url" name="websiteUrl" id="websiteUrl" />
         </div>
 	</fieldset>
@@ -48,18 +48,18 @@
 			<div id="effects">
 				<h2>Effects</h2>
 				<label for="effectNone">None</label>
-				<input type="radio"		name="effect[]" id="effectNone" 	value="none" checked />
+				<input type="radio" name="effect[]" id="effectNone" 	value="none" checked />
 				<label for="effectBlink">Blink</label>
-				<input type="checkbox" 	name="effect[]" id="effectBlink" 	value="blink"/>
+				<input type="checkbox" name="effect[]" id="effectBlink" 	value="blink"/>
 				<label for="effectHorn">Horn</label>
-				<input type="checkbox" 	name="effect[]" id="effectHorn" 	value="horn"/>
+				<input type="checkbox" name="effect[]" id="effectHorn" 	value="horn"/>
 			</div>
 			<br />
 
 			<div id="videoSettings">
 				<!--<label for="playToEnd"> Play to end off video </label>
 				<input type="checkbox" name="playToEnd" id="playToEnd" value="playToEnd"> -->
-				<span> Video will allways run to the end </span>
+				<span> Video will always run to the end </span>
 			</div>
 
 			<div id="duration">
