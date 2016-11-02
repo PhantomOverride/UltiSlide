@@ -18,7 +18,7 @@
 	    <div id="image">
             <div id="imageFileDiv">
                 <label for="imageFile">Upload image (jpeg, jpg, png)</label>
-				<input type="hidden" name="MAX_FILE_SIZE" value="4000000" />
+				<input type="hidden" name="MAX_FILE_SIZE" value="40000000" />
                 <input type="file" name="imageFile" id="imageFile" accept=".jpeg,.jpg,.png" />
             </div>
             <div id="urlImageDiv">

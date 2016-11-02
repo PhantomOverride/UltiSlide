@@ -1,100 +1,103 @@
 <?php
-	require_once("config.php");
+    require_once("config.php");
+    error_reporting(-1);
 
-	if(!isset($_POST["submit"])){
-		exit("Förfrågan måste skickas igenom knappen");
-	}
+    if(!isset($_POST["submit"])){
+            exit("Förfrågan måste skickas igenom knappen");
+    }
 
-	$allowedTypes = array(
-							"image",
-							"youtube",
-                            "website",
-							);
+    $allowedTypes = array(
+        "image",
+        "youtube",
+        "website",
+    );
 
-	$allowedEffects = array(
-							"none",
-							"blink",
-							"horn"
-							);
+    $allowedEffects = array(
+        "none",
+        "blink",
+        "horn"
+    );
 
     $type = filter_input(INPUT_POST, "mediaType", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $content = "";
-	$priority = filter_input(INPUT_POST, "priority", FILTER_SANITIZE_NUMBER_INT);
-	$duration = filter_input(INPUT_POST, "duration", FILTER_SANITIZE_NUMBER_INT);
-	$effect = filter_var_array($_POST["effect"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$startTime = GetTimestamp(true);
-	$endTime = GetTimestamp(false);
+    $priority = filter_input(INPUT_POST, "priority", FILTER_SANITIZE_NUMBER_INT);
+    $duration = filter_input(INPUT_POST, "duration", FILTER_SANITIZE_NUMBER_INT);
+    $effect = filter_var_array($_POST["effect"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $startTime = GetTimestamp(true);
+    $endTime = GetTimestamp(false);
 
-	echo $startTime . "<br />";
-	echo $endTime . "<br />";
+    echo $startTime . "<br />";
+    echo $endTime . "<br />";
 
-	if(!in_array($type, $allowedTypes)){
-		exit("Not allowed type" . $type);
-	}
+    if(!in_array($type, $allowedTypes)){
+            exit("Not allowed type" . $type);
+    }
 
-	if($effect[0] == $allowedEffects[0]){
-		$effect = NULL;
-	}
-	else{
-		$tempEfftect = "";
-		foreach($effect as $e){
-			if(!in_array($e, $allowedEffects)){
-				exit("Not allowed effect" . $e);
-			}
-			$tempEfftect .= $e . ',';
-		}
-		$effect = $tempEfftect;
-	}
+    if($effect[0] == $allowedEffects[0]){
+            $effect = NULL;
+    }
+    else{
+            $tempEfftect = "";
+            foreach($effect as $e){
+                    if(!in_array($e, $allowedEffects)){
+                            exit("Not allowed effect" . $e);
+                    }
+                    $tempEfftect .= $e . ',';
+            }
+            $effect = $tempEfftect;
+    }
 
-	switch($type){
-		case "image":
-			$content = IMAGES . Image();
-		break;
-		case "youtube":
-			$content = filter_input(INPUT_POST, "youtubeUrl", FILTER_SANITIZE_URL);
-			$duration = Youtube($content);
-		break;
+    switch($type){
+        case "image":
+                $content = IMAGES . Image();
+        break;
+        case "youtube":
+                $content = filter_input(INPUT_POST, "youtubeUrl", FILTER_SANITIZE_URL);
+                $duration = Youtube($content);
+        break;
         case "website":
             $content = filter_input(INPUT_POST, "websiteUrl", FILTER_SANITIZE_URL);
         break;
-	}
+        default:
+            die("No.");
+    }
 
-	try{
-		$pdo = DataBase::GetPDO();
-	}
-	catch(Exception $error){
-		echo $error;
-	}
-	echo "<br>";
-	//var_dump($pdo);
-	echo "<br>";
-	if($startTime != NULL){
-		$sql = "INSERT INTO `mkSlide`
-				(`priority`, `type`, `data`, `duration`, `effect`, `startTime`, `stopTime`)
-				VALUES
-				({$priority},'{$type}','{$content}',{$duration},'{$effect}',{$startTime},{$endTime})";
-	}
-	else{
-		$sql = "INSERT INTO `mkSlide`
-			(`priority`, `type`, `data`, `duration`, `effect`)
-			VALUES
-			({$priority},'{$type}','{$content}',{$duration},'{$effect}')";
-	}
-	$sth = $pdo->prepare($sql);
-	if(!$sth){
-		var_dump($pdo->errorInfo());
-	}
-	else{
-		$sth->execute();
-	}
+    try{
+            $pdo = DataBase::GetPDO();
+    }
+    catch(Exception $error){
+            echo $error;
+    }
 
-	//Close connection
-	$sth = null;
-	$pdo = null;
-    print_r("location: http://" . URL_TO_SLIDE ."cms");
-	#header("location: http://" . URL_TO_SLIDE ."/cms");
-	echo "<a href='http://" . URL_TO_SLIDE .  "cms'>Go Back</a>";
-	exit;
+    if($startTime != NULL){
+            $sql = "INSERT INTfO `mkSlide`
+                            (`priority`, `type`, `data`, `duration`, `effect`, `startTime`, `stopTime`)
+                            VALUES
+                            ({$priority},'{$type}','{$content}',{$duration},'{$effect}',{$startTime},{$endTime})";
+
+    }
+    else{
+            $sql = "INSERT INTO `mkSlide`
+                    (`priority`, `type`, `data`, `duration`, `effect`)
+                    VALUES
+                    ({$priority},'{$type}','{$content}',{$duration},'{$effect}')";
+    }
+
+    $sth = $pdo->prepare($sql);
+
+    if(!$sth){
+            var_dump($pdo->errorInfo());
+    }
+    else{
+            $sth->execute();
+    }
+
+    //Close connection
+    $sth = null;
+    $pdo = null;
+
+    header("Location: ../index.php");
+    echo "<a href='/cms/index.php'>Go Back</a>";
 
     function Image(){
         $local = filter_input(INPUT_POST, "localImage", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -103,16 +106,18 @@
 			$check = getimagesize($_FILES["imageFile"]["tmp_name"]);
 			if($check !== false){
 				if(file_exists($target)){
-					exit("A file with this name does allready exists. Choose another name or use the existing image");
+					exit("A file with this name does already exist. Choose another name or use the existing image");
 				}
 
-				if($_FILES["imageFile"]["size"] > 4000000){
-					exit("Sorry, file you try to upload is larger than 4mb");
+				if($_FILES["imageFile"]["size"] > 40000000){
+					exit("Sorry, file you are trying to upload is larger than 40MB");
 				}
+                                
 				$allowedFileTypes = array("jpg", "JPG", "jpeg", "JPEG","png", "PNG");
 				if(!in_array(pathinfo($target,PATHINFO_EXTENSION), $allowedFileTypes)){
 					exit("Only JPG, JPEG and PNG are allowed");
 				}
+                                
 				if(move_uploaded_file($_FILES["imageFile"]["tmp_name"], $target)){
 					return basename($_FILES["imageFile"]["name"]);
 				}
@@ -125,10 +130,12 @@
 			}
         }
         else{//Copy image from a URL
-            return CopyImage();
+            //return CopyImage();
+            exit("Please upload the image directly!");
         }
     }
-
+    
+    /*
     function CopyImage(){
         $url = filter_input(INPUT_POST, "urlImage", FILTER_SANITIZE_URL);
         $name = filter_input(INPUT_POST, "urlImageName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -137,6 +144,7 @@
         copy($url, $image);
         return $name . "." . $ext;
     }
+    */
 
 	function Youtube($url){
 		parse_str( parse_url($url, PHP_URL_QUERY), $out);
@@ -156,25 +164,25 @@
         return pathinfo($url, PATHINFO_EXTENSION);
     }
 
-	function GetTimestamp($start){
-		if(filter_input(INPUT_POST, "startNow", FILTER_SANITIZE_FULL_SPECIAL_CHARS) != true){
-			if($start){
-				$dateName = "startDate";
-				$timeName = "startTime";
-			}
-			else{
-				$dateName = "endDate";
-				$timeName = "endTime";
-			}
-			//date format yyyy-mm-dd Time format hh:mm:ss
-			$date = filter_input(INPUT_POST, $dateName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-			$time = filter_input(INPUT_POST, $timeName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    function GetTimestamp($start){
+            if(filter_input(INPUT_POST, "startNow", FILTER_SANITIZE_FULL_SPECIAL_CHARS) != true){
+                    if($start){
+                            $dateName = "startDate";
+                            $timeName = "startTime";
+                    }
+                    else{
+                            $dateName = "endDate";
+                            $timeName = "endTime";
+                    }
+                    //date format yyyy-mm-dd Time format hh:mm:ss
+                    $date = filter_input(INPUT_POST, $dateName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    $time = filter_input(INPUT_POST, $timeName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-			$date = new DateTime($date.'T'.$time, new DateTimeZone('UTC'));
-			return $date->getTimestamp();
-		}
-		else{
-			return NULL;
-		}
-	}
+                    $date = new DateTime($date.'T'.$time, new DateTimeZone('UTC'));
+                    return $date->getTimestamp();
+            }
+            else{
+                    return NULL;
+            }
+    }
 ?>
