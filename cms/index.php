@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>mkSlider CMS</title>
+	<title>Slideshow CMS</title>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="javascript/strings.js"></script>
 	<script src="javascript/form.js"></script>
@@ -14,14 +14,14 @@
 	<?php
 	include("html/menu.php");
     
-	if(isset($_GET["page"]) && in_array($_GET["page"], $allowedPages)){
-		$page = $_GET["page"];
-	}
-	else{
-		$page = "form";
-	}
-	include("html/{$page}.php");
-	
+        $page = ( !empty($_GET["page"]) ? $_GET["page"] : "form" );
+            
+        if($page == "form")
+            include("html/form.php");
+        elseif ($page == "remove")
+            include("html/remove.php");
+        else
+            echo "No.";
 	?>
 </body>
 
